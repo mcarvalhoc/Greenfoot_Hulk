@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Hulk" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="Integer" type-java="Integer" name="imagem" value="1" value-java="1" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body/>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Hulk wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Movimento Hulk.</comment>
+                <if condition="Greenfoot.isKeyDown(&quot;d&quot;)" condition-java="Greenfoot.isKeyDown(&quot;d&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX()+1,getY())" expression-java="setLocation(getX() + 1, getY())" enable="true"/>
+                        <call expression="caminhaParaDireita()" expression-java="caminhaParaDireita()" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;a&quot;)" condition-java="Greenfoot.isKeyDown(&quot;a&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX()-1,getY())" expression-java="setLocation(getX() - 1, getY())" enable="true"/>
+                        <call expression="caminhaParaEsquerda()" expression-java="caminhaParaEsquerda()" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;w&quot;)" condition-java="Greenfoot.isKeyDown(&quot;w&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getY()-1)" expression-java="setLocation(getX(), getY() - 1)" enable="true"/>
+                        <call expression="caminhaParaCima()" expression-java="caminhaParaCima()" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;s&quot;)" condition-java="Greenfoot.isKeyDown(&quot;s&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getY()+1)" expression-java="setLocation(getX(), getY() + 1)" enable="true"/>
+                        <call expression="caminhaParaBaixo()" expression-java="caminhaParaBaixo()" enable="true"/>
+                    </ifStatements>
+                </if>
+                <comment xml:space="preserve">Hulk  come maçâ.</comment>
+                <if condition="isTouching(Apple.class)" condition-java="isTouching(Apple.class)" enable="true">
+                    <ifStatements>
+                        <call expression="getWorldOfType(MyWorld.class).contaApple()" expression-java="getWorldOfType(MyWorld.class).contaApple()" enable="true"/>
+                        <call expression="getWorldOfType(MyWorld.class).adicionaApple()" expression-java="getWorldOfType(MyWorld.class).adicionaApple()" enable="true"/>
+                        <call expression="removeTouching(Apple.class)" expression-java="removeTouching(Apple.class)" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="atualizaImagem" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="float" type-java="float" name="resultado" value="0" value-java="0" enable="true"/>
+                <assign dest="resultado" dest-java="resultado" src="getWorldOfType(MyWorld.class).getCiclo()%8" src-java="getWorldOfType(MyWorld.class).getCiclo() % 8" enable="true"/>
+                <if condition="resultado==0" condition-java="resultado == 0" enable="true">
+                    <ifStatements>
+                        <assign dest="imagem" dest-java="imagem" src="imagem+1" src-java="imagem + 1" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="caminhaParaBaixo" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="imagem&gt;=1" condition-java="imagem &gt;= 1" enable="true">
+                    <ifStatements>
+                        <if condition="imagem&lt;=4" condition-java="imagem &lt;= 4" enable="true">
+                            <ifStatements>
+                                <call expression="setImage(&quot;hulk/down_0&quot;+imagem+&quot;.png&quot;)" expression-java="setImage(&quot;hulk/down_0&quot; + imagem + &quot;.png&quot;)" enable="true"/>
+                                <call expression="atualizaImagem()" expression-java="atualizaImagem()" enable="true"/>
+                            </ifStatements>
+                        </if>
+                    </ifStatements>
+                </if>
+                <if condition="imagem&gt;4" condition-java="imagem &gt; 4" enable="true">
+                    <ifStatements>
+                        <assign dest="imagem" dest-java="imagem" src="1" src-java="1" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="caminhaParaCima" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="imagem&gt;=1" condition-java="imagem &gt;= 1" enable="true">
+                    <ifStatements>
+                        <if condition="imagem&lt;=4" condition-java="imagem &lt;= 4" enable="true">
+                            <ifStatements>
+                                <call expression="setImage(&quot;hulk/up_0&quot;+imagem+&quot;.png&quot;)" expression-java="setImage(&quot;hulk/up_0&quot; + imagem + &quot;.png&quot;)" enable="true"/>
+                                <call expression="atualizaImagem()" expression-java="atualizaImagem()" enable="true"/>
+                            </ifStatements>
+                        </if>
+                    </ifStatements>
+                </if>
+                <if condition="imagem&gt;4" condition-java="imagem &gt; 4" enable="true">
+                    <ifStatements>
+                        <assign dest="imagem" dest-java="imagem" src="1" src-java="1" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="caminhaParaEsquerda" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="imagem&gt;=1" condition-java="imagem &gt;= 1" enable="true">
+                    <ifStatements>
+                        <if condition="imagem&lt;=4" condition-java="imagem &lt;= 4" enable="true">
+                            <ifStatements>
+                                <call expression="setImage(&quot;hulk/left_0&quot;+imagem+&quot;.png&quot;)" expression-java="setImage(&quot;hulk/left_0&quot; + imagem + &quot;.png&quot;)" enable="true"/>
+                                <call expression="atualizaImagem()" expression-java="atualizaImagem()" enable="true"/>
+                            </ifStatements>
+                        </if>
+                    </ifStatements>
+                </if>
+                <if condition="imagem&gt;4" condition-java="imagem &gt; 4" enable="true">
+                    <ifStatements>
+                        <assign dest="imagem" dest-java="imagem" src="1" src-java="1" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="caminhaParaDireita" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="imagem&gt;=1" condition-java="imagem &gt;= 1" enable="true">
+                    <ifStatements>
+                        <if condition="imagem&lt;=4" condition-java="imagem &lt;= 4" enable="true">
+                            <ifStatements>
+                                <call expression="setImage(&quot;hulk/right_0&quot;+imagem+&quot;.png&quot;)" expression-java="setImage(&quot;hulk/right_0&quot; + imagem + &quot;.png&quot;)" enable="true"/>
+                                <call expression="atualizaImagem()" expression-java="atualizaImagem()" enable="true"/>
+                            </ifStatements>
+                        </if>
+                    </ifStatements>
+                </if>
+                <if condition="imagem&gt;4" condition-java="imagem &gt; 4" enable="true">
+                    <ifStatements>
+                        <assign dest="imagem" dest-java="imagem" src="1" src-java="1" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>
