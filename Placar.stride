@@ -24,10 +24,19 @@
             <throws/>
             <body>
                 <call expression="getWorld().showText(String.valueOf(contador),300,25)" expression-java="getWorld().showText(String.valueOf(contador), 300, 25)" enable="true"/>
-                <call expression="finalizaJogo()" expression-java="finalizaJogo()" enable="true"/>
+                <call expression="finalizaJogoVencedor()" expression-java="finalizaJogoVencedor()" enable="true"/>
+                <call expression="finalizaJogoPerdedor()" expression-java="finalizaJogoPerdedor()" enable="true"/>
             </body>
         </method>
-        <method access="public" type="void" type-java="void" name="adicionaPonto" enable="true">
+        <method access="public" type="void" type-java="void" name="adicionaPontoApple" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="contador" dest-java="contador" src="contador+5" src-java="contador + 5" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="adicionaPontoRocha" enable="true">
             <javadoc xml:space="preserve"/>
             <params/>
             <throws/>
@@ -35,14 +44,43 @@
                 <assign dest="contador" dest-java="contador" src="contador+1" src-java="contador + 1" enable="true"/>
             </body>
         </method>
-        <method access="public" type="void" type-java="void" name="finalizaJogo" enable="true">
+        <method access="public" type="void" type-java="void" name="adicionaPontoCereja" enable="true">
             <javadoc xml:space="preserve"/>
             <params/>
             <throws/>
             <body>
-                <if condition="contador==5" condition-java="contador == 5" enable="true">
+                <assign dest="contador" dest-java="contador" src="contador-5" src-java="contador - 5" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="adicionaPontoMosca" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="contador" dest-java="contador" src="contador-1" src-java="contador - 1" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="finalizaJogoVencedor" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="contador==100" condition-java="contador == 100" enable="true">
                     <ifStatements>
                         <call expression="getWorld().showText(&quot;Você Venceu&quot;,300,200)" expression-java="getWorld().showText(&quot;Você Venceu&quot;, 300, 200)" enable="true"/>
+                        <call expression="Greenfoot.stop()" expression-java="Greenfoot.stop()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="finalizaJogoPerdedor" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="contador&lt;=-1" condition-java="contador &lt;= -1" enable="true">
+                    <ifStatements>
+                        <call expression="getWorld().showText(&quot;Você Perdeu&quot;,300,200)" expression-java="getWorld().showText(&quot;Você Perdeu&quot;, 300, 200)" enable="true"/>
                         <call expression="Greenfoot.stop()" expression-java="Greenfoot.stop()" enable="true"/>
                     </ifStatements>
                 </if>

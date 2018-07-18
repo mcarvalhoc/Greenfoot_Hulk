@@ -11,6 +11,8 @@ public class MyWorld extends World
     private Hulk hulk = null;
     private Apple apple = null;
     private Placar placar = null;
+    private Cereja cereja = null;
+    private Mosca mosca = null;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -32,6 +34,14 @@ public class MyWorld extends World
         adicionaApple();
         placar =  new  Placar();
         addObject(placar, 315, 40);
+        adicionaRocha();
+        adicionaRocha();
+        adicionaRocha();
+        adicionaRocha();
+        adicionaCereja();
+        adicionaMosca();
+        adicionaMosca();
+        adicionaMosca();
     }
 
     /**
@@ -66,7 +76,7 @@ public class MyWorld extends World
      */
     public void contaApple()
     {
-        placar.adicionaPonto();
+        placar.adicionaPontoApple();
     }
 
     /**
@@ -75,5 +85,53 @@ public class MyWorld extends World
     public void adicionaApple()
     {
         addObject( new  Apple(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+    }
+
+    /**
+     * 
+     */
+    public void contaPedra()
+    {
+        placar.adicionaPontoRocha();
+    }
+
+    /**
+     * 
+     */
+    public void adicionaRocha()
+    {
+        addObject( new  Rocha(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+    }
+
+    /**
+     * 
+     */
+    public void contaCereja()
+    {
+        placar.adicionaPontoCereja();
+    }
+
+    /**
+     * 
+     */
+    public void adicionaCereja()
+    {
+        addObject( new  Cereja(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+    }
+
+    /**
+     * 
+     */
+    public void adicionaMosca()
+    {
+        addObject( new  Mosca(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+    }
+
+    /**
+     * 
+     */
+    public void contaMosca()
+    {
+        placar.adicionaPontoMosca();
     }
 }

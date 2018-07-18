@@ -23,19 +23,19 @@ public class Hulk extends Actor
     {
         /* Movimento Hulk.*/
         if (Greenfoot.isKeyDown("d")) {
-            setLocation(getX() + 1, getY());
+            setLocation(getX() + 2, getY());
             caminhaParaDireita();
         }
         if (Greenfoot.isKeyDown("a")) {
-            setLocation(getX() - 1, getY());
+            setLocation(getX() - 2, getY());
             caminhaParaEsquerda();
         }
         if (Greenfoot.isKeyDown("w")) {
-            setLocation(getX(), getY() - 1);
+            setLocation(getX(), getY() - 2);
             caminhaParaCima();
         }
         if (Greenfoot.isKeyDown("s")) {
-            setLocation(getX(), getY() + 1);
+            setLocation(getX(), getY() + 2);
             caminhaParaBaixo();
         }
         /* Hulk  come maçâ.*/
@@ -43,6 +43,24 @@ public class Hulk extends Actor
             getWorldOfType(MyWorld.class).contaApple();
             getWorldOfType(MyWorld.class).adicionaApple();
             removeTouching(Apple.class);
+        }
+        /* Hulk come cereja.*/
+        if (isTouching(Cereja.class)) {
+            getWorldOfType(MyWorld.class).contaCereja();
+            getWorldOfType(MyWorld.class).adicionaCereja();
+            removeTouching(Cereja.class);
+        }
+        /* Hulk destroi rocha.*/
+        if (isTouching(Rocha.class)) {
+            getWorldOfType(MyWorld.class).contaPedra();
+            getWorld().addObject( new  Rocha(), 25, Greenfoot.getRandomNumber(400));
+            removeTouching(Rocha.class);
+        }
+        /* Hulk come mosca.*/
+        if (isTouching(Mosca.class)) {
+            getWorldOfType(MyWorld.class).contaMosca();
+            getWorldOfType(MyWorld.class).adicionaMosca();
+            removeTouching(Mosca.class);
         }
     }
 

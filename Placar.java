@@ -22,13 +22,22 @@ public class Placar extends Actor
     public void act()
     {
         getWorld().showText(String.valueOf(contador), 300, 25);
-        finalizaJogo();
+        finalizaJogoVencedor();
+        finalizaJogoPerdedor();
     }
 
     /**
      * 
      */
-    public void adicionaPonto()
+    public void adicionaPontoApple()
+    {
+        contador = contador + 5;
+    }
+
+    /**
+     * 
+     */
+    public void adicionaPontoRocha()
     {
         contador = contador + 1;
     }
@@ -36,10 +45,37 @@ public class Placar extends Actor
     /**
      * 
      */
-    public void finalizaJogo()
+    public void adicionaPontoCereja()
     {
-        if (contador == 5) {
+        contador = contador - 5;
+    }
+
+    /**
+     * 
+     */
+    public void adicionaPontoMosca()
+    {
+        contador = contador - 1;
+    }
+
+    /**
+     * 
+     */
+    public void finalizaJogoVencedor()
+    {
+        if (contador == 100) {
             getWorld().showText("Você Venceu", 300, 200);
+            Greenfoot.stop();
+        }
+    }
+
+    /**
+     * 
+     */
+    public void finalizaJogoPerdedor()
+    {
+        if (contador <= -1) {
+            getWorld().showText("Você Perdeu", 300, 200);
             Greenfoot.stop();
         }
     }

@@ -26,25 +26,25 @@
                 <comment xml:space="preserve">Movimento Hulk.</comment>
                 <if condition="Greenfoot.isKeyDown(&quot;d&quot;)" condition-java="Greenfoot.isKeyDown(&quot;d&quot;)" enable="true">
                     <ifStatements>
-                        <call expression="setLocation(getX()+1,getY())" expression-java="setLocation(getX() + 1, getY())" enable="true"/>
+                        <call expression="setLocation(getX()+2,getY())" expression-java="setLocation(getX() + 2, getY())" enable="true"/>
                         <call expression="caminhaParaDireita()" expression-java="caminhaParaDireita()" enable="true"/>
                     </ifStatements>
                 </if>
                 <if condition="Greenfoot.isKeyDown(&quot;a&quot;)" condition-java="Greenfoot.isKeyDown(&quot;a&quot;)" enable="true">
                     <ifStatements>
-                        <call expression="setLocation(getX()-1,getY())" expression-java="setLocation(getX() - 1, getY())" enable="true"/>
+                        <call expression="setLocation(getX()-2,getY())" expression-java="setLocation(getX() - 2, getY())" enable="true"/>
                         <call expression="caminhaParaEsquerda()" expression-java="caminhaParaEsquerda()" enable="true"/>
                     </ifStatements>
                 </if>
                 <if condition="Greenfoot.isKeyDown(&quot;w&quot;)" condition-java="Greenfoot.isKeyDown(&quot;w&quot;)" enable="true">
                     <ifStatements>
-                        <call expression="setLocation(getX(),getY()-1)" expression-java="setLocation(getX(), getY() - 1)" enable="true"/>
+                        <call expression="setLocation(getX(),getY()-2)" expression-java="setLocation(getX(), getY() - 2)" enable="true"/>
                         <call expression="caminhaParaCima()" expression-java="caminhaParaCima()" enable="true"/>
                     </ifStatements>
                 </if>
                 <if condition="Greenfoot.isKeyDown(&quot;s&quot;)" condition-java="Greenfoot.isKeyDown(&quot;s&quot;)" enable="true">
                     <ifStatements>
-                        <call expression="setLocation(getX(),getY()+1)" expression-java="setLocation(getX(), getY() + 1)" enable="true"/>
+                        <call expression="setLocation(getX(),getY()+2)" expression-java="setLocation(getX(), getY() + 2)" enable="true"/>
                         <call expression="caminhaParaBaixo()" expression-java="caminhaParaBaixo()" enable="true"/>
                     </ifStatements>
                 </if>
@@ -54,6 +54,30 @@
                         <call expression="getWorldOfType(MyWorld.class).contaApple()" expression-java="getWorldOfType(MyWorld.class).contaApple()" enable="true"/>
                         <call expression="getWorldOfType(MyWorld.class).adicionaApple()" expression-java="getWorldOfType(MyWorld.class).adicionaApple()" enable="true"/>
                         <call expression="removeTouching(Apple.class)" expression-java="removeTouching(Apple.class)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <comment xml:space="preserve">Hulk come cereja.</comment>
+                <if condition="isTouching(Cereja.class)" condition-java="isTouching(Cereja.class)" enable="true">
+                    <ifStatements>
+                        <call expression="getWorldOfType(MyWorld.class).contaCereja()" expression-java="getWorldOfType(MyWorld.class).contaCereja()" enable="true"/>
+                        <call expression="getWorldOfType(MyWorld.class).adicionaCereja()" expression-java="getWorldOfType(MyWorld.class).adicionaCereja()" enable="true"/>
+                        <call expression="removeTouching(Cereja.class)" expression-java="removeTouching(Cereja.class)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <comment xml:space="preserve">Hulk destroi rocha.</comment>
+                <if condition="isTouching(Rocha.class)" condition-java="isTouching(Rocha.class)" enable="true">
+                    <ifStatements>
+                        <call expression="getWorldOfType(MyWorld.class).contaPedra()" expression-java="getWorldOfType(MyWorld.class).contaPedra()" enable="true"/>
+                        <call expression="getWorld().addObject(new Rocha(),25,Greenfoot.getRandomNumber(400))" expression-java="getWorld().addObject( new Rocha(), 25, Greenfoot.getRandomNumber(400))" enable="true"/>
+                        <call expression="removeTouching(Rocha.class)" expression-java="removeTouching(Rocha.class)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <comment xml:space="preserve">Hulk come mosca.</comment>
+                <if condition="isTouching(Mosca.class)" condition-java="isTouching(Mosca.class)" enable="true">
+                    <ifStatements>
+                        <call expression="getWorldOfType(MyWorld.class).contaMosca()" expression-java="getWorldOfType(MyWorld.class).contaMosca()" enable="true"/>
+                        <call expression="getWorldOfType(MyWorld.class).adicionaMosca()" expression-java="getWorldOfType(MyWorld.class).adicionaMosca()" enable="true"/>
+                        <call expression="removeTouching(Mosca.class)" expression-java="removeTouching(Mosca.class)" enable="true"/>
                     </ifStatements>
                 </if>
             </body>

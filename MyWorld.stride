@@ -11,6 +11,8 @@
         <variable access="private" type="Hulk" type-java="Hulk" name="hulk" value="null" value-java="null" enable="true"/>
         <variable access="private" type="Apple" type-java="Apple" name="apple" value="null" value-java="null" enable="true"/>
         <variable access="private" type="Placar" type-java="Placar" name="placar" value="null" value-java="null" enable="true"/>
+        <variable access="private" type="Cereja" type-java="Cereja" name="cereja" value="null" value-java="null" enable="true"/>
+        <variable access="private" type="Mosca" type-java="Mosca" name="mosca" value="null" value-java="null" enable="true"/>
     </fields>
     <constructors>
         <constructor access="public" enable="true">
@@ -35,6 +37,14 @@ Ou seja: criar os objetos iniciais e adicioná-los ao mundo.</javadoc>
                 <call expression="adicionaApple()" expression-java="adicionaApple()" enable="true"/>
                 <assign dest="placar" dest-java="placar" src="new Placar()" src-java=" new Placar()" enable="true"/>
                 <call expression="addObject(placar,315,40)" expression-java="addObject(placar, 315, 40)" enable="true"/>
+                <call expression="adicionaRocha()" expression-java="adicionaRocha()" enable="true"/>
+                <call expression="adicionaRocha()" expression-java="adicionaRocha()" enable="true"/>
+                <call expression="adicionaRocha()" expression-java="adicionaRocha()" enable="true"/>
+                <call expression="adicionaRocha()" expression-java="adicionaRocha()" enable="true"/>
+                <call expression="adicionaCereja()" expression-java="adicionaCereja()" enable="true"/>
+                <call expression="adicionaMosca()" expression-java="adicionaMosca()" enable="true"/>
+                <call expression="adicionaMosca()" expression-java="adicionaMosca()" enable="true"/>
+                <call expression="adicionaMosca()" expression-java="adicionaMosca()" enable="true"/>
             </body>
         </method>
         <method access="public" type="void" type-java="void" name="contaCiclo" enable="true">
@@ -71,7 +81,7 @@ Ou seja: criar os objetos iniciais e adicioná-los ao mundo.</javadoc>
             <params/>
             <throws/>
             <body>
-                <call expression="placar.adicionaPonto()" expression-java="placar.adicionaPonto()" enable="true"/>
+                <call expression="placar.adicionaPontoApple()" expression-java="placar.adicionaPontoApple()" enable="true"/>
             </body>
         </method>
         <method access="public" type="void" type-java="void" name="adicionaApple" enable="true">
@@ -80,6 +90,54 @@ Ou seja: criar os objetos iniciais e adicioná-los ao mundo.</javadoc>
             <throws/>
             <body>
                 <call expression="addObject(new Apple(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400))" expression-java="addObject( new Apple(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400))" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="contaPedra" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="placar.adicionaPontoRocha()" expression-java="placar.adicionaPontoRocha()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="adicionaRocha" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="addObject(new Rocha(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400))" expression-java="addObject( new Rocha(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400))" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="contaCereja" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="placar.adicionaPontoCereja()" expression-java="placar.adicionaPontoCereja()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="adicionaCereja" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="addObject(new Cereja(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400))" expression-java="addObject( new Cereja(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400))" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="adicionaMosca" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="addObject(new Mosca(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400))" expression-java="addObject( new Mosca(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400))" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="contaMosca" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="placar.adicionaPontoMosca()" expression-java="placar.adicionaPontoMosca()" enable="true"/>
             </body>
         </method>
     </methods>

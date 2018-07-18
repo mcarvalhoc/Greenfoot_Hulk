@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Rocha" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="Integer" type-java="Integer" name="contador" value="0" value-java="0" enable="true"/>
+    </fields>
+    <constructors/>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Rocha wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="contador" dest-java="contador" src="contador+1" src-java="contador + 1" enable="true"/>
+                <call expression="setLocation(getX()+2,getY())" expression-java="setLocation(getX() + 2, getY())" enable="true"/>
+                <if condition="getX()&gt;590" condition-java="getX() &gt; 590" enable="true">
+                    <ifStatements>
+                        <call expression="getWorld().addObject(new Rocha(),25,Greenfoot.getRandomNumber(400))" expression-java="getWorld().addObject( new Rocha(), 25, Greenfoot.getRandomNumber(400))" enable="true"/>
+                        <call expression="saiRocha()" expression-java="saiRocha()" enable="true"/>
+                    </ifStatements>
+                </if>
+                <blank/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="saiRocha" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="getWorld().removeObject(this)" expression-java="getWorld().removeObject(this)" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>
